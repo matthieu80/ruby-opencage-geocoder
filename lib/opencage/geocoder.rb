@@ -21,7 +21,8 @@ module OpenCage
       # for anything that cannot be interpreted as a pair of floats.
       lat, lng = coordinates.flatten.compact.map { |coord| Float(coord) }
 
-      Location.new(self, lat: lat, lng: lng).name
+      loc = Location.new(self, lat: lat, lng: lng)
+      return { city: loc.city, country: loc.country }
     end
 
     def url
