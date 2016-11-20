@@ -25,6 +25,14 @@ module OpenCage
         @name ||= results.first['formatted']
       end
 
+      def city
+        results.first['components']['city']
+      end
+
+      def country
+        results.first['components']['country']
+      end
+
       def coordinates
         [ lat, lng ]
       end
